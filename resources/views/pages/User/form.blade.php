@@ -1,6 +1,6 @@
 <div class="row">
 
-    <div class="col-md-6 mb-2">
+    <div class="col-md-6 mb-4">
         <div class="form-group">
             <label>Nome</label>
             <input
@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <div class="col-md-6 mb-2">
+    <div class="col-md-6 mb-4">
         <div class="form-group">
             <label for="birthdate">Data de Nascimento</label>
             <input
@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <div class="col-md-6 mb-2">
+    <div class="col-md-6 mb-4">
         <div class="form-group">
             <label for="email">E-mail</label>
             <input
@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <div class="col-md-6 mb-2">
+    <div class="col-md-6 mb-4">
         <div class="form-group">
             <label for="password">Senha</label>
             <input
