@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         $data['users'] = User::all();
 
-        return view('pages.user.show', $data);
+        return view('show', $data);
     }
 
     /**
@@ -24,7 +24,7 @@ class UserController extends Controller
     */
     public function create()
     {
-        return view('pages.user.create');
+        return view('create');
     }
 
     /**
@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         $data['user'] = User::findOrFail($id);
 
-        return view('pages.user.edit', $data);
+        return view('edit', $data);
     }
 
 
