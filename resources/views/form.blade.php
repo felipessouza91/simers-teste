@@ -26,7 +26,7 @@
                 name="cpf"
                 placeholder="CPF"
                 value="@isset($user) {{ old('cpf', $user->cpf) }} @endisset"
-                class="@error('cpf') is-invalid @enderror form-control"
+                class="@error('cpf') is-invalid @enderror form-control cpf"
                 #required
             >
             @error('cpf')
@@ -42,7 +42,7 @@
                 name="phone"
                 placeholder="Telefone"
                 value="@isset($user) {{ old('phone', $user->phone) }} @endisset"
-                class="@error('phone') is-invalid @enderror form-control"
+                class="@error('phone') is-invalid @enderror form-control phone_with_ddd"
                 #required
             >
             @error('phone')
@@ -56,9 +56,9 @@
             <label for="birthdate">Data de Nascimento</label>
             <input
                 name="birthdate"
-                type="date"
+                type="text"
                 value="@isset($user) {{ old('birthdate', $user->birthdate) }} @endisset"
-                class="@error('birthdate') is-invalid @enderror form-control"
+                class="@error('birthdate') is-invalid @enderror form-control date"
                 #required
             >
             @error('birthdate')
