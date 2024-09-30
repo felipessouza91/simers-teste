@@ -12,10 +12,11 @@ class UserController extends Controller
     /**
     *   Lista todos os usuários
     */
-    public function index()
+    public function show()
     {
         $data['users'] = User::all();
-        return view('user.index', $data);
+
+        return view('pages.user.show', $data);
     }
 
     /**
@@ -23,7 +24,7 @@ class UserController extends Controller
     */
     public function create()
     {
-        return view('user.create');
+        return view('pages.user.create');
     }
 
     /**
@@ -32,7 +33,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $data['user'] = User::findOrFail($id);
-        return view('user.edit', $data);
+
+        return view('pages.user.edit', $data);
     }
 
 
@@ -57,7 +59,10 @@ class UserController extends Controller
         DB::transaction(function() use ($form) {
             User::create($form);
         });
-        return redirect()->route('list')->with('success');
+
+        flash('Usuário adicionado com sucesso!', 'p-2 bg-success text-white');
+
+        return redirect()->route('list');
     }
 
     /**
@@ -80,7 +85,9 @@ class UserController extends Controller
 
         $user->update($form);
 
-        return redirect()->route('list')->with('success');
+        flash('Usuário atualizado com sucesso!', 'p-2 bg-success text-white');
+
+        return redirect()->route('list');
     }
 
     /**
@@ -89,30 +96,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+
         $user->delete($id);
-        return redirect()->route('list')->with('success');
+
+        flash('Usuário excluído!', 'p-2 bg-danger text-white');
+
+        return redirect()->route('list');
     }
 
-    public function showLogin()
-    {
-        return view('user.login');
-    }
-
-    public function login(Request $request)
-    {
-        $form = $request->validate([
-            "email" => "required|email",
-            "password" => "required|min:6"
-        ]);
-
-        $password = $form['password'];
-
-        $user = User::where('email', $form['email'])->first();
-
-        if( $user && Hash::check($password, $user->password) ) {
-            return response()->json(["Logged" => true]);
-        } else {
-            return response()->json(["Logged" => false]);
-        }
-    }
 }
