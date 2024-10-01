@@ -2,7 +2,7 @@
 
     <div class="col-md-6 mb-4">
         <div class="form-group">
-            <label>Nome</label>
+            <label>Nome <span class="text-danger text-sm">*</span></label>
             <input
                 name="name"
                 max="20"
@@ -19,14 +19,12 @@
 
     <div class="col-md-6 mb-4">
         <div class="form-group">
-            <label for="cpf">
-                CPF
-            </label>
+            <label for="cpf">CPF <span class="text-danger text-sm">*</span></label>
             <input
                 name="cpf"
                 placeholder="CPF"
                 value="@isset($user) {{ old('cpf', $user->cpf) }} @endisset"
-                class="@error('cpf') is-invalid @enderror form-control"
+                class="@error('cpf') is-invalid @enderror form-control cpf"
                 #required
             >
             @error('cpf')
@@ -37,12 +35,12 @@
 
     <div class="col-md-6 mb-4">
         <div class="form-group">
-            <label for="phone">Telefone</label>
+            <label for="phone">Telefone <span class="text-danger text-sm">*</span></label>
             <input
                 name="phone"
                 placeholder="Telefone"
                 value="@isset($user) {{ old('phone', $user->phone) }} @endisset"
-                class="@error('phone') is-invalid @enderror form-control"
+                class="@error('phone') is-invalid @enderror form-control phone_with_ddd"
                 #required
             >
             @error('phone')
@@ -53,12 +51,12 @@
 
     <div class="col-md-6 mb-4">
         <div class="form-group">
-            <label for="birthdate">Data de Nascimento</label>
+            <label for="birthdate">Data de Nascimento <span class="text-danger text-sm">*</span></label>
             <input
                 name="birthdate"
-                type="date"
+                placeholder="dd/mm/aaaa"
                 value="@isset($user) {{ old('birthdate', $user->birthdate) }} @endisset"
-                class="@error('birthdate') is-invalid @enderror form-control"
+                class="@error('birthdate') is-invalid @enderror form-control date"
                 #required
             >
             @error('birthdate')
@@ -69,7 +67,7 @@
 
     <div class="col-md-6 mb-4">
         <div class="form-group">
-            <label for="email">E-mail</label>
+            <label for="email">E-mail <span class="text-danger text-sm">*</span></label>
             <input
                 name="email"
                 placeholder="E-mail"
@@ -85,7 +83,7 @@
 
     <div class="col-md-6 mb-4">
         <div class="form-group">
-            <label for="password">Senha</label>
+            <label for="password">Senha <span class="text-danger text-sm">*</span></label>
             <input
                 name="password"
                 type="password"
