@@ -92,7 +92,7 @@ class UserController extends Controller
 
         $user->update($form);
 
-        flash('Usuário atualizado com sucesso!', 'alert alert-success');
+        flash('O usuário foi atualizado com sucesso!', 'alert alert-success');
 
         return redirect()->route('list');
     }
@@ -106,7 +106,7 @@ class UserController extends Controller
 
         $user->delete($id);
 
-        flash('Usuário excluído!', 'alert alert');
+        flash('O usuário foi excluído!', 'alert alert-danger');
 
         return redirect()->route('list');
     }
