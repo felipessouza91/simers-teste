@@ -14,11 +14,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/jquery-mask-plugin@1.14.16/dist/jquery.mask.min.js" integrity="sha256-Kg2zTcFO9LXOc7IwcBx1YeUBJmekycsnTsq2RuFHSZU=" crossorigin="anonymous"></script>
             <script>
-                $(document).ready(function(){
-                    $('.date').mask('00/00/0000');
-                    $('.phone_with_ddd').mask('(00) 0000-0000');
-                    $('.cpf').mask('000.000.000-00', {reverse: true});
-                });
+            $(document).ready(function(){
+              //masks
+              $('.date').mask('00/00/0000');
+              $('.phone_with_ddd').mask('(00) 0000-0000');
+              $('.cpf').mask('000.000.000-00', {reverse: true});
+
+              //dismiss alert
+              setTimeout(function() {
+                $('.alert').hide();
+              }, 2500);
+            });
             </script>
         </footer>
     </body>

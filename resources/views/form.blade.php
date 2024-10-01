@@ -2,7 +2,7 @@
 
     <div class="col-md-6 mb-4">
         <div class="form-group">
-            <label>Nome</label>
+            <label>Nome <span class="text-danger text-sm">*</span></label>
             <input
                 name="name"
                 max="20"
@@ -19,9 +19,7 @@
 
     <div class="col-md-6 mb-4">
         <div class="form-group">
-            <label for="cpf">
-                CPF
-            </label>
+            <label for="cpf">CPF <span class="text-danger text-sm">*</span></label>
             <input
                 name="cpf"
                 placeholder="CPF"
@@ -37,7 +35,7 @@
 
     <div class="col-md-6 mb-4">
         <div class="form-group">
-            <label for="phone">Telefone</label>
+            <label for="phone">Telefone <span class="text-danger text-sm">*</span></label>
             <input
                 name="phone"
                 placeholder="Telefone"
@@ -53,10 +51,10 @@
 
     <div class="col-md-6 mb-4">
         <div class="form-group">
-            <label for="birthdate">Data de Nascimento</label>
+            <label for="birthdate">Data de Nascimento <span class="text-danger text-sm">*</span></label>
             <input
                 name="birthdate"
-                type="text"
+                placeholder="dd/mm/aaaa"
                 value="@isset($user) {{ old('birthdate', $user->birthdate) }} @endisset"
                 class="@error('birthdate') is-invalid @enderror form-control date"
                 #required
@@ -69,7 +67,7 @@
 
     <div class="col-md-6 mb-4">
         <div class="form-group">
-            <label for="email">E-mail</label>
+            <label for="email">E-mail <span class="text-danger text-sm">*</span></label>
             <input
                 name="email"
                 placeholder="E-mail"
@@ -85,7 +83,7 @@
 
     <div class="col-md-6 mb-4">
         <div class="form-group">
-            <label for="password">Senha</label>
+            <label for="password">Senha <span class="text-danger text-sm">*</span></label>
             <input
                 name="password"
                 type="password"

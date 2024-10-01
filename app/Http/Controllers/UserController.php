@@ -65,7 +65,7 @@ class UserController extends Controller
             User::create($form);
         });
 
-        flash('Usuário adicionado com sucesso!', 'p-2 bg-success text-white');
+        flash('Usuário adicionado com sucesso!', 'alert alert-success');
 
         return redirect()->route('list');
     }
@@ -83,7 +83,7 @@ class UserController extends Controller
             "password"  => "required|string|min:6",
             "cpf"       => "required|string",
             "phone"     => "required|string",
-            "birthdate" => "required|date"
+            "birthdate" => "required"
         ]);
 
         $form['birthdate'] = Carbon::createFromFormat('d/m/Y', $form['birthdate'])->format('Y-m-d');
@@ -92,7 +92,7 @@ class UserController extends Controller
 
         $user->update($form);
 
-        flash('Usuário atualizado com sucesso!', 'p-2 bg-success text-white');
+        flash('Usuário atualizado com sucesso!', 'alert alert-success');
 
         return redirect()->route('list');
     }
@@ -106,7 +106,7 @@ class UserController extends Controller
 
         $user->delete($id);
 
-        flash('Usuário excluído!', 'p-2 bg-danger text-white');
+        flash('Usuário excluído!', 'alert alert');
 
         return redirect()->route('list');
     }

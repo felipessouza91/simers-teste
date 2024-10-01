@@ -5,8 +5,9 @@
     <div class="row">
         <div class="col-12 text-center">
             @if(flash()->message)
-                <div class="{{ flash()->class }}">
+                <div class="{{ flash()->class }} alert-dismissible fade show" role="alert">
                     {{ flash()->message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
                 </div>
             @endif
         </div>
