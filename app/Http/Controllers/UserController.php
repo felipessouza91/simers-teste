@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -34,6 +35,8 @@ class UserController extends Controller
     {
         $data['user'] = User::findOrFail($id);
 
+        $data['user']['birthdate'] = Carbon::parse( $data['user']['birthdate']  )->format('d/m/Y');
+
         return view('edit', $data);
     }
 
@@ -49,8 +52,10 @@ class UserController extends Controller
             "password"  => "required|string|min:6",
             "cpf"       => "required|string|unique:users",
             "phone"     => "required|string",
-            "birthdate" => "required|date"
+            "birthdate" => "required"
         ]);
+
+        $form['birthdate'] = Carbon::createFromFormat('d/m/Y', $form['birthdate'])->format('Y-m-d');
 
         $password = Hash::make($request->password);
 
@@ -80,6 +85,8 @@ class UserController extends Controller
             "phone"     => "required|string",
             "birthdate" => "required|date"
         ]);
+
+        $form['birthdate'] = Carbon::createFromFormat('d/m/Y', $form['birthdate'])->format('Y-m-d');
 
         $form['password'] = Hash::make($form['password']);
 
