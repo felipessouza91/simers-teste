@@ -81,7 +81,7 @@ class UserController extends Controller
             "name"      => "required|string|min:4|max:20",
             "email"     => "required|string|email",
             "password"  => "required|string|min:6",
-            "cpf"       => "required|string",
+            "cpf"       => "required|string|min:14",
             "phone"     => "required|string",
             "birthdate" => "required"
         ]);

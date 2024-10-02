@@ -56,8 +56,7 @@
                     </tr>
                 </thead>
                 <tbody>
-
-                        @foreach($users as $user)
+                    @foreach($users as $user)
                         <tr>
                             <th>
                                 {{ $user->id }}
@@ -83,11 +82,11 @@
                                 </a>
                             </td>
                             <td>
-                                <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#confirm-remove">
+                                <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#confirm-remove-{{$user->id}}">
                                     <i class="bi bi-trash text-danger"></i>
                                 </button>
                             </td>
-                            <div class="modal fade" id="confirm-remove" tabindex="-1" aria-labelledby="confirmRemove" aria-hidden="true">
+                            <div class="modal fade" id="confirm-remove-{{ $user->id }}" tabindex="-1" aria-labelledby="confirmRemove" aria-hidden="true">
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
@@ -109,7 +108,7 @@
                               </div>
                             </div>
                         </tr>
-                        @endforeach
+                    @endforeach
                 </tbody>
             </table>
             @else

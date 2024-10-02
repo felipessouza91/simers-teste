@@ -22,9 +22,9 @@
             <label for="cpf">CPF <span class="text-danger text-sm">*</span></label>
             <input
                 name="cpf"
-                placeholder="CPF"
+                placeholder="000.000.000-00"
                 value="@isset($user) {{ old('cpf', $user->cpf) }} @endisset"
-                class="@error('cpf') is-invalid @enderror form-control cpf"
+                class="@error('cpf') is-invalid @enderror form-control"
                 #required
             >
             @error('cpf')
