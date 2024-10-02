@@ -24,7 +24,7 @@
                 name="cpf"
                 placeholder="000.000.000-00"
                 value="@isset($user) {{ old('cpf', $user->cpf) }} @endisset"
-                class="@error('cpf') is-invalid @enderror form-control"
+                class="@error('cpf') is-invalid @enderror form-control cpf"
                 #required
             >
             @error('cpf')
