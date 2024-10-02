@@ -74,7 +74,10 @@
                                 {{ $user->phone }}
                             </td>
                             <td>
-                                {{ $user->birthdate }}
+                                @php
+                                    $date = date_parse_from_format('Y-m-d', $user->birthdate);
+                                @endphp
+                                {{ $date['day'] . '/'. $date['month'] . '/' . $date['year'] }}
                             </td>
                             <td>
                                 <a href="{{ url('users/edit/'. $user->id) }}" class="btn btn-light">
